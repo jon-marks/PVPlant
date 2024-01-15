@@ -245,9 +245,29 @@
         <article role="main">
           <section id="weather-records">
 <span id="id1"></span><h1><span class="section-number">3.1. </span>Weather Records<a class="headerlink" href="#weather-records" title="Link to this heading">#</a></h1>
-<p>A project under OSFPGA foundation <span id="id2">[<a class="reference internal" href="../08_references.html#id4" title="Open-source fpga. URL: www.osfpga.org.">osf</a>]</span></p>
-<p>See <span id="id3">[<a class="reference internal" href="../08_references.html#id3" title="Edward Nelson. Radically Elementary Probability Theory. Princeton University Press, 1987.">Nel87</a>]</span> for an introduction to non-standard analysis.
-Non-standard analysis is fun <span id="id4">[<a class="reference internal" href="../08_references.html#id3" title="Edward Nelson. Radically Elementary Probability Theory. Princeton University Press, 1987.">Nel87</a>]</span>.</p>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>Fix this.</p>
+</div>
+<p>A project under OSFPGA foundation <span id="id3">[<a class="reference internal" href="../08_references.html#id4" title="Open-source fpga. URL: www.osfpga.org.">osf</a>]</span></p>
+<p>See <span id="id4">[<a class="reference internal" href="../08_references.html#id3" title="Edward Nelson. Radically Elementary Probability Theory. Princeton University Press, 1987.">Nel87</a>]</span> for an introduction to non-standard analysis.
+Non-standard analysis is fun <span id="id5">[<a class="reference internal" href="../08_references.html#id3" title="Edward Nelson. Radically Elementary Probability Theory. Princeton University Press, 1987.">Nel87</a>]</span>.</p>
+<p>Weather records typically measure or calculate parameters at that time instant. PVGIS ERA Data
+are an exception to this, but the Resolution of ERA data is 27x27Km2 whereas SARAH2 data is ~5x5km2</p>
+<p>It is
+Weather records are typically TMY or hourly over multiple years.  It is important to know the
+uncertainties of these irradiance values.  Typically, TMY is said to have a 3% uncertainty, and
+the uncertainty of hourly data is calculated using techniques found here: <a class="reference external" href="https://solargis.com/docs/accuracy-and-comparisons/combining-model-uncertainty-and-interannual-variability">https://solargis.com/docs/accuracy-and-comparisons/combining-model-uncertainty-and-interannual-variability</a></p>
+<div class="admonition-todo admonition" id="id6">
+<p class="admonition-title">Todo</p>
+<p>Find a ref for 3% uncertainty of of TMS DATA.</p>
+</div>
+<p>Accuracy of Weather records: <a class="reference external" href="https://solargis.com/docs/methodology/tmy-generation">https://solargis.com/docs/methodology/tmy-generation</a></p>
+<p>Time Series vs. TMY vs. Synthetic Hourly Time Series</p>
+<p>Some popular simulation software are able to generate synthetic hourly time series from long-term monthly averages. Mathematical models for generating synthetic time series have been tuned for few specific sites in temperate climate. The performance of these models is not validated in other climatic zones such as rain tropics or arid deserts. This is a widely used approach. However, it generates a distorted representation of actual time series.</p>
+<p>Typical Meteorological Year data are closest to real time series as they include 12 fragments of real data that describe a climate more realistically based on the given selection criteria. Energy Yield simulations using TMY data represent better accuracy compared to energy yield simulations done using synthetic time series data.</p>
+<p>It is important to note that the data reduction in TMY is not possible without loss of information contained in the original multiyear time series. As a result of generating TMY and mathematical rounding, long-term monthly and annual averages calculated from TMY data files may not fit accurately to the statistical information calculated from the multiyear time series.</p>
+<p>Therefore time series data are considered as the most accurate reference suitable for the statistical analysis of solar resource and meteorological parameters of the site. Only time series data can be used for the statistical analysis of solar climate.</p>
 </section>
 
         </article>
