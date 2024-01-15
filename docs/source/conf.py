@@ -48,7 +48,7 @@ source_suffix = {
     '.md': 'markdown',
 }
 
-# Enable the generation of todo lists
+# Enable the generation of to do lists
 todo_include_todos = True
 todo_emit_warnings = True
 
