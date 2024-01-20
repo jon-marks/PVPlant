@@ -26,6 +26,7 @@ extensions = ['sphinx.ext.githubpages',  # creates .nojekyll empty file in html 
               'sphinxcontrib.bibtex',  # see https://pypi.org/project/sphinxcontrib-bibtex/
               'sphinx.ext.todo',
               'sphinx.ext.mathjax',
+#              'sphinx.ext.autosectionlabel',
               ]
 
 bibtex_bibfiles = ['references.bib']

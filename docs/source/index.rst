@@ -36,8 +36,12 @@ PVPlant
 
 :raw-html:`</span></p><div class="toctree-wrapper compound"><p class="caption" role="heading"><span class="caption-text">Figures</span></p><p><span></div>`
 
-|  :numref:`fig_pvplant_tool_scope` :ref:`fig_pvplant_tool_scope`
-|
+|  :numref:`fig_pvplant_scope` :ref:`fig_pvplant_scope`
+|  :numref:`fig_azim_elev` :ref:`fig_azim_elev`
+|  :numref:`fig_dni_dhi` :ref:`fig_dni_dhi`
+|  :numref:`fig_solstns` :ref:`fig_solstns`
+|  :numref:`fig_pvwatts` :ref:`fig_pvwatts`
+
 
 :raw-html:`</span></p><div class="toctree-wrapper compound"><p class="caption" role="heading"><span class="caption-text">Tables</span></p><p><span></div>`
 

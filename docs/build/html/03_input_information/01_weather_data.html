@@ -1,0 +1,595 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="3.2. Energy Consumption Records" href="02_energy_consumption_records.html" /><link rel="prev" title="3. Input Information" href="index.html" />
+
+    <link rel="shortcut icon" href="../_static/AIM.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
+        <title>PVPlant | Input Information | Weather Data</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
+    <link rel="stylesheet" type="text/css" href="../_static/overrides.css?v=091ca5f1" />
+    <link rel="stylesheet" type="text/css" href="../_static/table.css?v=42f7f4fa" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">PVPlant</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../_static/AIM.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">PVPlant</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../01_introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_system_overview.html">2. System Overview</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">3. Input Information</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of 3. Input Information</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">3.1. Weather Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_energy_consumption_records.html">3.2. Energy Consumption Records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_energy_billing_records.html">3.3. Energy Billing Records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_energy_rates.html">3.4. Energy Rates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_proposed_pvs_parameters.html">3.5. Proposed PV System Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_proposed_ess_parameters.html">3.6. Proposed ESS Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_proposed_ems_parameters.html">3.7. Proposed EMS Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_proposed_genset_parameters.html">3.8. Proposed Genset Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_proposed_pvplant_capex.html">3.9. Proposed PV Plant Capex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_proposed_pvplant_opex.html">3.10. Proposed PV Plant Opex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_projected_energy_consumption.html">3.11. Projected Energy Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_projected_supply_outages.html">3.12. Projected Supply Outages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13_projected_financial_parameters.html">3.13. Projected Financial Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04_intermediate_information/index.html">4. Intermediate Information</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of 4. Intermediate Information</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04_intermediate_information/01_weather.html">4.1. Weather</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_intermediate_information/02_solar_energy.html">4.2. Solar Energy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_intermediate_information/03_grid_energy.html">4.3. Grid Energy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_intermediate_information/04_storage_energy.html">4.4. Storage Energy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_intermediate_information/05_genset_energy.html">4.5. Genset Energy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_intermediate_information/06_energy_costs.html">4.6. Energy Costs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_intermediate_information/07_grid_outages.html">4.7. Grid Outages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_intermediate_information/08_load_demand.html">4.8. Load Demand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_intermediate_information/09_load_energy.html">4.9. Load Energy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_intermediate_information/10_load_energy_costs.html">4.10. Load Energy Costs</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05_system_models/index.html">5. System Models</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of 5. System Models</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05_system_models/01_weather.html">5.1. Weather Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05_system_models/02_pcc.html">5.2. Projected Consumption Costing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05_system_models/03_pv_system.html">5.3. PV System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05_system_models/04_genset.html">5.4. Genset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05_system_models/05_ess.html">5.5. Energy Storage System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05_system_models/06_ems.html">5.6. Energy Management System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05_system_models/07_fiscal_model.html">5.7. Fiscal Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../06_fiscal_projections.html">6. Fiscal Projections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_glossary.html">7. Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08_references.html">8. References</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../A1_data_specifications/index.html">1. Data Specifications</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="weather-data">
+<span id="weather-records"></span><h1><span class="section-number">3.1. </span>Weather Data<a class="headerlink" href="#weather-data" title="Link to this heading">#</a></h1>
+<aside class="topic">
+<p class="topic-title">You are what you eat!</p>
+<p>“You are what you eat”.  Like food gets digested by our bodies to provide us nutrition, weather
+data gets processed by PV Plant modelling software to provide power production estimates.
+No matter how sound the processing model (digestive system), the results produced are only as
+good as the data (food) provided.</p>
+</aside>
+<p>It does matter what and whose weather data is used to predict PV Plant power output.  Weather Data
+is not all created equally.  Simply pick a location, obtain different types weather data from one
+or more sources, and sum or average the annual <a class="reference internal" href="../07_glossary.html#term-Insolation"><span class="xref std std-term">Insolation</span></a>.  Often the variation is more than
+20%.  This variation is huge in an analysis where fractions of a percentage point count.</p>
+<p>I do not believe it is good enough to rely on the default weather record source of your favourite
+tool to predict PV Plant production, without understanding how the weather data was created and its
+limitations.  It is tempting to hide behind the reputation of your favourite PV Plant modelling
+tool, but, will that help you explain to your customer why the plant is not producing what was
+predicted?</p>
+<section id="about-weather-data">
+<h2><span class="section-number">3.1.1. </span>About Weather Data<a class="headerlink" href="#about-weather-data" title="Link to this heading">#</a></h2>
+<p>Weather Data of interest to PVPlant is time-series Irradiance, wind speed, ambient temperature, and
+sun position.  The Irradiance is made up of <a class="reference internal" href="#dni-dhi-ghi"><span class="std std-ref">DNI, DHI and GHI</span></a>.  The Sun’s position is specified by
+its <a class="reference internal" href="#sun-pos"><span class="std std-ref">azimuth and apparent elevation</span></a>.</p>
+<p>Weather Data selection is far more complex than one would think.  Let’s proceed down a short rabbit
+hole of the complexities, or skip to <a class="reference internal" href="#weather-data-discussion"><span class="std std-numref">Section 3.1.1.6: </span></a>.
+PVPlant.</p>
+<section id="position-of-the-sun">
+<span id="sun-pos"></span><h3><span class="section-number">3.1.1.1. </span>Position of the Sun<a class="headerlink" href="#position-of-the-sun" title="Link to this heading">#</a></h3>
+<p>The sun’s position from any point on the surface on earth is specified by its azimuth and apparent
+elevation.</p>
+<figure class="align-center" id="fig-azim-elev">
+<a class="reference internal image-reference" href="../_images/azim_elev.jpg"><img alt="Solar Position - Azimuth and Elevation" src="../_images/azim_elev.jpg" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.1:  </span><span class="caption-text">Solar Position - Azimuth and Elevation</span><a class="headerlink" href="#fig-azim-elev" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Elevation is angle that the sun’s rays make with the horizontal surface of the earth.
+The suns rays bend progressively by a small amount the closer the sun is to the horizon, due to the
+increased distance rays travel through the earth’s atmosphere.  The apparent elevation value
+accounts for the slight refraction through the earth’s atmosphere.</p>
+<p>Azimuth is the horizontal surface angle clockwise from North to the horizontal component of the
+Sun’s elevation</p>
+</section>
+<section id="dni-dhi-and-ghi">
+<span id="dni-dhi-ghi"></span><h3><span class="section-number">3.1.1.2. </span>DNI, DHI and GHI<a class="headerlink" href="#dni-dhi-and-ghi" title="Link to this heading">#</a></h3>
+<p>Irradiance is the instantaneous power (W/m<sup>2</sup>)from the sun on a (horizontal) surface
+1 m<sup>2</sup>.  Insolation is the accumulation of radiant power on this surface over the period of
+an hour.  (Wh/m<sup>2</sup>).  Irradiance is to power what Insolation is to Energy.</p>
+<figure class="align-center" id="fig-dni-dhi">
+<a class="reference internal image-reference" href="../_images/dni_dhi.jpg"><img alt="Irrandiance - DNI and DHI" src="../_images/dni_dhi.jpg" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.2:  </span><span class="caption-text">Irradiance - DNI and DHI</span><a class="headerlink" href="#fig-dni-dhi" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The important Irradiance Data numbers are:</p>
+<ul>
+<li><p><strong>DNI</strong>:  Direct Normal Irradiance is the direct ray of light emanating from the sun on a surface
+perpendicular to the sun, 1 m<sup>2</sup></p></li>
+<li><p><strong>DHI</strong>:  Diffuse Horizontal Irradiance is the sun’s irradiant power that is scattered by
+aerosols in the atmosphere.  DHI is present at all angles and appears equally on a 1 m<sup>2</sup>
+surface at any orientation, tilt and slope.</p></li>
+<li><p><strong>GHI</strong>:  Global Horizontal Irradiance is all the radiant light falling on a horizontal surface
+1 m<sup>2</sup>.  It is the sum of the vertical component of DNI and DHI.</p>
+<div class="math-wrapper docutils container" id="equation-ghi">
+<div class="math notranslate nohighlight" id="equation-ghi">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-ghi" title="Link to this equation">#</a></span>\[GHI = DNI \times sin(e) + DHI\]</div>
+</div>
+<p>where <em>e</em> is the apparent elevation angle of the sun.</p>
+</li>
+</ul>
+</section>
+<section id="capacity-factor">
+<h3><span class="section-number">3.1.1.3. </span>Capacity Factor<a class="headerlink" href="#capacity-factor" title="Link to this heading">#</a></h3>
+<p>Capacity Factor is a useful metric in assessing the power production performance.  It is the
+ratio of actual or predicted annual power production of a PV Plant to it’s name-plate power
+production.</p>
+<p>For example, say a Plant has 100 – 550Wp modules, and according to a power production
+prediction calculation, has an annual energy production of 90MWh.  The capacity factor is calculated
+as:</p>
+<div class="math-wrapper docutils container" id="equation-npe">
+<div class="math notranslate nohighlight" id="equation-npe">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-npe" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}Annual\ Name\ Plate\ Energy &amp;= Number\ of\ Modules \times Module\ Power \times  hours\ in\ year\\
+\\
+&amp;= 100 \times 550\ Wp \times 8\ 760\ h\\
+\\
+&amp;= 481.8\ MWph\end{align}\end{split}\]</div>
+</div>
+<div class="math-wrapper docutils container" id="equation-cf">
+<div class="math notranslate nohighlight" id="equation-cf">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-cf" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}Capacity\ Factor &amp;= \frac{Annual\ Energy\ Production}{Annual\ Name\ Plate\ Energy}\\
+\\
+&amp;= \frac{90\ MWh}{481.8\ MWph}\\
+\\
+&amp;= 18.68 \% \end{align}\end{split}\]</div>
+</div>
+<p>Typical real world Capacity Factor percentages range between 10 and 25 percent.</p>
+<p>Any location on earth has theoretical Maximum Capacity Factor depending on its weather. It is
+calculated as follows:</p>
+<div class="math-wrapper docutils container" id="equation-mcf">
+<div class="math notranslate nohighlight" id="equation-mcf">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-mcf" title="Link to this equation">#</a></span>\[Maximum\ Capacity\ Factor = \frac{Annual\ Insolation\ (Wph/m^2)}{(1\ 000\ (Wp/m^2) \times hours\ in\ year)}\]</div>
+</div>
+<p>For example, say a location experiences an Annual Insolation of 2MW/m<sup>2</sup>.</p>
+<div class="math-wrapper docutils container" id="equation-mcf1">
+<div class="math notranslate nohighlight" id="equation-mcf1">
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-mcf1" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}Maximum\ Capacity\ Factor &amp;= \frac{2\ 000\ 000\ Wp/m^2}{1\ 000\ Wph/m^2 \times 8\ 760\ h}\\
+\\
+&amp;= 22.83 \% \end{align}\end{split}\]</div>
+</div>
+</section>
+<section id="weather-data-providers-and-sources">
+<h3><span class="section-number">3.1.1.4. </span>Weather Data Providers and Sources<a class="headerlink" href="#weather-data-providers-and-sources" title="Link to this heading">#</a></h3>
+<p>In the spirit of open information and public availability, Weather Data from like-minded
+organisations are considered.  The Weather Data organisations considered here are NREL, PVGIS, and
+CAMS</p>
+<p><span id="id1">[<a class="reference internal" href="../08_references.html#id9" title="Pvlib - weather data - types of weather data. URL: https://pvlib-python.readthedocs.io/en/stable/user_guide/weather_data.html#types-of-weather-data-sources.">5</a>]</span> and <span id="id2">[<a class="reference internal" href="../08_references.html#id8" title="Adam R. Jensen, Kevin S. Anderson, William F. Holmgren, Mark A. Mikofski, Clifford W. Hansen, Leland J. Boeman, and Roel Loonen. Pvlib iotools — open-source python functions for seamless access to solar irradiance data. Solar Energy, 266:1–9, November 2023. URL: https://www.sciencedirect.com/science/article/pii/S0038092X23007260.">8</a>]</span> lists three types of weather sources:</p>
+<section id="ground-weather-stations">
+<h4><span class="section-number">3.1.1.4.1. </span>Ground Weather Stations<a class="headerlink" href="#ground-weather-stations" title="Link to this heading">#</a></h4>
+<p>Ground Weather Stations take actual irradiance weather measurements at specific geographic
+locations.  When the measuring equipment is high quality, calibrated and operating correctly,
+these weather stations log the most accurate information for that location.  However, equipment
+needs periodic calibration and maintenance and does go faulty from time to time leaving holes in
+the accurate information.  Some ground stations make their weather data publicly available.</p>
+<p>Because of the large expense of maintaining high quality weather stations they are rather scarce.
+At the time of this writing <span id="id3">[<a class="reference internal" href="../08_references.html#id10" title="Solar stations web site. URL: https://solarstations.org/intro.html.">4</a>]</span> identifies only 10 active sites in the whole of
+South africa as shown in <a class="reference internal" href="#fig-solstns"><span class="std std-numref">Figure 3.3: </span></a>.  The blue dots represent active sites, the red dots,
+inactive sites.</p>
+<figure class="align-center" id="fig-solstns">
+<a class="reference internal image-reference" href="../_images/solstns.jpg"><img alt="Solar Ground Weather Stations" src="../_images/solstns.jpg" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.3:  </span><span class="caption-text">Solar Ground Weather Stations</span><a class="headerlink" href="#fig-solstns" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Unless the PV Plant being proposed is close to one of these sites, this data is not really an option
+for PVPlant.</p>
+<p>A purpose of these ground station measurements is to verify the computation of Irradiance Data
+modelled from satellite data.</p>
+</section>
+<section id="satellite-data">
+<h4><span class="section-number">3.1.1.4.2. </span>Satellite Data<a class="headerlink" href="#satellite-data" title="Link to this heading">#</a></h4>
+<p>There are a number of research and commercial entities that analyse data from weather satellites
+observing cloud cover and air <a class="reference internal" href="../07_glossary.html#term-Turbidity"><span class="xref std std-term">turbidity</span></a>, which is then processed through their irradiance
+and atmospheric models, producing reasonably accurate irradiance estimates.  These model
+estimates are improved from time to time by comparing them with ground station measured results.</p>
+<p>Satellite data has uniform spatial resolution in the satellite’s geographical coverage,
+typically 0.05° latitude × 0.05° longitude (≈ 5 km × 5 km). Some
+Data providers even provide interpolated values to the exact location.</p>
+<p>The temporal resolution of satellite data is also very good, typically sub hour.  There are no holes
+or periods of uncalibrated data like one finds in measured data.</p>
+<p>Reasonable accuracy together with high spatial and temporal resolutions make satellite data
+attractive for PV Plant power production predictions.</p>
+</section>
+<section id="reanalysed-data">
+<h4><span class="section-number">3.1.1.4.3. </span>Reanalysed Data<a class="headerlink" href="#reanalysed-data" title="Link to this heading">#</a></h4>
+<p>Reanalysed data increases geographical coverage by deriving irradiance estimates from weather
+forecasting data.  The uncertainties of reanalysed data is much higher than satellite data, making
+it the option to only use for locations without satellite data.  Spacial resolutions are typically
+0.25° latitude × 0.25° longitude (≈ 25 km × 25 km).</p>
+</section>
+</section>
+<section id="types-of-weather-data">
+<h3><span class="section-number">3.1.1.5. </span>Types of Weather Data<a class="headerlink" href="#types-of-weather-data" title="Link to this heading">#</a></h3>
+<section id="typical-meteorological-year-tmy-data">
+<h4><span class="section-number">3.1.1.5.1. </span>Typical Meteorological Year (TMY) Data<a class="headerlink" href="#typical-meteorological-year-tmy-data" title="Link to this heading">#</a></h4>
+<p>The median data for a particular month is calculated from a data set, and the actual year whose
+monthly data is closest to the calculated median is taken as the Typical Meteorological Month for
+the TMY.  Typically, weightings are given to certain data items in determining the median month.</p>
+<p>The approach is the same but different data set providers implement the details differently.</p>
+<p><a class="reference external" href="https://www.nrel.gov">NREL</a> describe their data sources and how they calculate TMY data in
+<span id="id4">[<a class="reference internal" href="../08_references.html#id4" title="S. Wilcox and W. Marion. Users manual for tmy3 data sets. Technical Report NREL/TP-581-43156, National Renewable Energy Laboratory, May 2008. URL: https://www.nrel.gov/docs/fy08osti/43156.pdf.">9</a>]</span> and <span id="id5">[<a class="reference internal" href="../08_references.html#id3" title="Nsrdb — typical meteorological year (tmy). URL: https://nsrdb.nrel.gov/data-sets/tmy.">1</a>]</span>.  NREL TMY data is based on ground observations, and
+in the whole of Southern africa data is either observed in Harare, Johannesburg or Capetown.  The
+site requires latitude and longitude coordinate entry and then shows how far this site is from the
+closest dataset.</p>
+<figure class="align-center" id="fig-pvwatts">
+<a class="reference internal image-reference" href="../_images/pvwatts.jpg"><img alt="PV Watts Data Source Selection" src="../_images/pvwatts.jpg" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.4:  </span><span class="caption-text">PV Watts Data Source Selection</span><a class="headerlink" href="#fig-pvwatts" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><a class="reference external" href="https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis_en">PVGIS</a>
+describe their data sources and approach in <span id="id6">[<a class="reference internal" href="../08_references.html#id7" title="Thomas Huld, Elena Paietta, Paolo Zangheri, and Irene Pinedo Pascua. Assembling typical meteorological year data sets for building energy performance using reanalysis and satellite-based data. Atmosphere, 9,53:1–21, November 2018. URL: https://www.mdpi.com/2073-4433/9/2/53.">7</a>]</span>, <span id="id7">[<a class="reference internal" href="../08_references.html#id5" title="Pvgis typical meteorological year (tmy) generator. URL: https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/pvgis-tools/pvgis-typical-meteorological-year-tmy-generator_en.">3</a>]</span>, and <span id="id8">[<a class="reference internal" href="../08_references.html#id6" title="Pvgis typical meteorological year (tmy) data. URL: https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/getting-started-pvgis/pvgis-user-manual_en#ref-10-typical-meteorological-year-tmy-data.">2</a>]</span>
+PVGIS TMY data appears to be derived from satellite data, so the spacial accuracy is good.  Data is
+obtained from <a class="reference external" href="https://re.jrc.ec.europa.eu/pvg_tools/en/#TMY">https://re.jrc.ec.europa.eu/pvg_tools/en/#TMY</a></p>
+<p>I recall reading somewhere that the estimated uncertainty for TMY data is 3%, but I have not been
+able to find this reference again.  Any help is appreciated.</p>
+</section>
+<section id="multi-year-time-series-data">
+<h4><span class="section-number">3.1.1.5.2. </span>Multi-year Time-series Data<a class="headerlink" href="#multi-year-time-series-data" title="Link to this heading">#</a></h4>
+<p>Multi-year Time-series Data is calculated from satellite data.</p>
+<p><a class="reference external" href="https://www.nrel.gov">NREL</a> obtains its information from
+meteosat IODC, but only has records for 2017 to 2019, which is not large enough to provide sufficient
+certainty for future irradiance projections..  <a class="reference external" href="https://nsrdb.nrel.gov/data-sets/international-data">https://nsrdb.nrel.gov/data-sets/international-data</a></p>
+<p><a class="reference external" href="https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis_en">PVGIS</a>
+provides time-series data gleaned from european geo-stationary weather satellites.  Instantaneous hourly data
+values for the years 2005 through 2020 are available in their PGIS-SARAH2 Database.  Their download tool
+allows for panel slope and azimuth – setting these value to zero downloads horizontal surface irradiance values.</p>
+<p>refs: <a class="reference external" href="https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/getting-started-pvgis/pvgis-user-manual_en#ref-9-hourly-solar-radiation-and-pv-data">https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/getting-started-pvgis/pvgis-user-manual_en#ref-9-hourly-solar-radiation-and-pv-data</a>
+<a class="reference external" href="https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/pvgis-tools/hourly-radiation_en">https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/pvgis-tools/hourly-radiation_en</a>
+<a class="reference external" href="https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/pvgis-releases/pvgis-52_en">https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/pvgis-releases/pvgis-52_en</a></p>
+<p><a class="reference external" href="https://ads.atmosphere.copernicus.eu/cdsapp#!/home">CAMS</a> Only provides time-series data.  30min resolution
+horizontal Data going back to 2 Jan 2004 can be requested which is ideal for PVPlant.  The dataset also
+provide a reliability factor for each data record.  This leads me to believe/infer that this data is
+perhaps the most accurate / reliable of all the choices, but I have no way of verifying this. CAMS data
+cam be obtained from:
+<a class="reference external" href="https://confluence.ecmwf.int/display/CKB/CAMS+solar+radiation+time-series%3A+data+documentation">https://confluence.ecmwf.int/display/CKB/CAMS+solar+radiation+time-series%3A+data+documentation</a></p>
+<p>The Standard deviation of time-series data is calculateable so the uncertanty of the averaged data is known.</p>
+</section>
+<section id="theoretical-clearsky-model">
+<h4><span class="section-number">3.1.1.5.3. </span>Theoretical Clearsky Model<a class="headerlink" href="#theoretical-clearsky-model" title="Link to this heading">#</a></h4>
+<p>Many tools abound for clearsky communication models.  PVPlant uses pvlib as the tool with the internal
+defaults  <a class="reference external" href="https://pvlib-python.readthedocs.io/en/stable/index.html">https://pvlib-python.readthedocs.io/en/stable/index.html</a></p>
+<ul class="simple">
+<li><p>NREL SPA - solar position, which also accounts for light refraction close to the horizon</p></li>
+<li><p>Ineichen and Perez clear sky model Clearsky model: Perez</p></li>
+<li><p>Kasten and Young Air mass model.</p></li>
+</ul>
+<p>CAMS Timeseries also has an option for providing clearsky data calculated from satellite imagery which
+is probably more accurate as information based on current observed data is likely to be more accurate than
+modeled data based on historical data.  Again I have no way of verifying this.</p>
+</section>
+</section>
+<section id="discussion">
+<span id="weather-data-discussion"></span><h3><span class="section-number">3.1.1.6. </span>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">#</a></h3>
+<p>Irrespective of the type of weather data the more years the data covers the better.  Generally the
+larger the sample set the lower the uncertainties, One would want to consider at least 10 years of
+data as a minimum</p>
+<p>TMY data wants to eliminate weather caused by unusual and randomly occuring events such as volanic
+eruptions, earthquakes, large fires, wars, and the like.  Averaging Times-series
+data on the other hand includes a weighting of these events.</p>
+<p>There are proponents for the use of one
+type or another.  I personally believe averaged time-series is more representative of reality.  Although
+there is no way of predicting when one of events occur and what their effect on weather will be, we
+can be certain that these events will continue to occur into the future and it is more realistic to
+account for these events in long term averages.</p>
+<p>PV Plant supports the use of both TMY and Time-series data, clearsky data provides a useful idealised
+reference. Different data types and even same data types from different providers will afford different
+results than can be up to 5% apart - that is approximately a 25% uncertainty, where fractions of
+percentage points count.  Predicting production of a solar plant is an art, where predictions on
+data-sets are really a guide.</p>
+<p>As of this Writing,
+<a class="reference external" href="https://www.pvsyst.com">PVSyst</a> and <a class="reference external" href="https://www.helioscope.com">Helioscope</a> by default use
+<a class="reference external" href="https://www.meteonorm">Meteonorm</a> TMY weather data-sets.  Meteonorm obtains its TMY datasets from
+NREL and <a class="reference external" href="https://www.dwd.de">DWD</a> - both only providing measured data at specific locations,
+making them less than ideal for analysis unless the PV plant is close to a measuring station.</p>
+<p><a class="reference external" href="https://www.opensolar.com">OpenSolar</a> uses NREL’s <a class="reference external" href="https://sam.nrel.gov/">SAM</a> to model solar
+performance.  SAM uses the NREL’s TMY data too.</p>
+<p>Personally, I favour averaged time-series data over TMY data.  If TMY data is required, use PVGIS’s
+TMY information.  When it comes to Time Series, CAMS provides data that can be used without manipulation
+whereas PVGIS data requires some interpolation and conversion of irradiance numbers to insolation.
+Also there are more years available in the CAMS data set.</p>
+<p>Because of the variabililty of data, a good approach may be to calculate annual solar production
+using PVGIS TMY, PVGIS time series and CAMS time series data, to judge where the actual prediction
+may fall.</p>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="02_energy_consumption_records.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title"><span class="section-number">3.2. </span>Energy Consumption Records</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="index.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title"><span class="section-number">3. </span>Input Information</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, Jonathan Marks
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">3.1. Weather Data</a><ul>
+<li><a class="reference internal" href="#about-weather-data">3.1.1. About Weather Data</a><ul>
+<li><a class="reference internal" href="#position-of-the-sun">3.1.1.1. Position of the Sun</a></li>
+<li><a class="reference internal" href="#dni-dhi-and-ghi">3.1.1.2. DNI, DHI and GHI</a></li>
+<li><a class="reference internal" href="#capacity-factor">3.1.1.3. Capacity Factor</a></li>
+<li><a class="reference internal" href="#weather-data-providers-and-sources">3.1.1.4. Weather Data Providers and Sources</a><ul>
+<li><a class="reference internal" href="#ground-weather-stations">3.1.1.4.1. Ground Weather Stations</a></li>
+<li><a class="reference internal" href="#satellite-data">3.1.1.4.2. Satellite Data</a></li>
+<li><a class="reference internal" href="#reanalysed-data">3.1.1.4.3. Reanalysed Data</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#types-of-weather-data">3.1.1.5. Types of Weather Data</a><ul>
+<li><a class="reference internal" href="#typical-meteorological-year-tmy-data">3.1.1.5.1. Typical Meteorological Year (TMY) Data</a></li>
+<li><a class="reference internal" href="#multi-year-time-series-data">3.1.1.5.2. Multi-year Time-series Data</a></li>
+<li><a class="reference internal" href="#theoretical-clearsky-model">3.1.1.5.3. Theoretical Clearsky Model</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#discussion">3.1.1.6. Discussion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=607a09ed"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

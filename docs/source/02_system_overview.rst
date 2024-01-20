@@ -8,10 +8,17 @@
 System Overview
 ###############
 
-The PV Plant Tool system overview is illustrated in :numref:`fig_pvplant_tool_scope`.
+.. note:: 
+   As PVPlant is initially a South African product intended for a South African market.
+   International readers may find this information South Africa centric, which may not be fully 
+   applicable to other localities.  It is my intention to first focus on South Africa, before
+   looking further afield.  That said, I am receptive to collaborative contributions that 
+   incorporate other localities while I focus on South Africa.
+
+PVPlant system overview is illustrated in :numref:`fig_pvplant_scope`.
 
 .. figure:: images/PVPlant_scope.jpg
-   :name: fig_pvplant_tool_scope
+   :name: fig_pvplant_scope
    :width: 100%
    :alt: PV Plant Tool Scope
    :align: center
@@ -22,6 +29,10 @@ The PV Plant Tool system overview is illustrated in :numref:`fig_pvplant_tool_sc
 The PVPlant tools accepts information as inputs that is processed through models creating
 intermediate data, which in turn is processed through other models to ultimately arrive at Fiscal
 Projections, the resulting output data.
+
+==================
+PVPlant Components
+==================
 
 Weather Model
 =============
@@ -108,6 +119,40 @@ cost and saving financial profile for the first year of operation.
 
 Then with financial projections such as inflation rate, interest rates, energy supply cost 
 escalations, component deterioration, etc. the annual numbers are projected for the lifetime of 
-the PV Plant, from which finanicial management information is distilled which is useful in assessing
+the PV Plant, from which financial management information is distilled which is useful in assessing
 the viability and return on investing in a the PV Plant.
-cost
+
+===================
+PVPlant Information
+===================
+
+PVPlant Time Base
+=================
+
+A single time base for intermediate and final time-series data, keeps data consistent, makes this 
+information easier to follow and simplifies implementation of PVPlant.
+
+PVPlant's time base is half-hourly over a non-leap year from 1 Jan, 00:00 to 31 Dec, 23:00.  That is
+17,520 records long.
+
+Working consistently with energies and not mixing power and energy information further simplifies
+impolemenation.  The consistency makes the intermediate information easier to follow.
+ 
+PVPlant processes input time-series information as follows:
+
+*  Information is scaled or interpolated to the 1/2 hourly time base
+*  All instantaneous power measurements are converted to their energy equivalent for the
+   period.  The energy value of a time step record is that energy between this time step and the
+   next.
+*  All input energy measurements need to be shifted and recalculated to be between this time step
+   and the next.  Some records list energy values where:
+   
+   *  The energy in a time step period, equi-distant about the time step, or
+   *  The energy between the previous time step and this.
+   
+*  All instantaneous information like wind-speed or ambient temperature that PV Plant processes
+   is recalculated as the average wind speed between this time step and the next, which more 
+   accurately represents the average value over the period representing the energy.
+*  All calculated non-linear information like azimuth and apparent elevation of the sun is 
+   done at the mid-point between this time step and the next to more accurately align its
+   value with the energy values for the period.

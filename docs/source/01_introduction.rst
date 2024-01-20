@@ -33,7 +33,7 @@ Scope
 =====
 
 This tool only models the performance of proposed PV Plants, and calculates the financial 
-management numbers to determine the plant's fiscal viabilty.  This tool does not involve itself in
+management numbers to determine the plant's fiscal viability.  This tool does not involve itself in
 the design and selection of components for a PV Plant.  However, having selected components and 
 designed a plant, this tool accurately calculates the power production running the numbers against 
 :term:`CapEx` and :term:`OpEx` costs, to produce financial management information.  
@@ -45,6 +45,19 @@ Intended Audience
 =================
 
 
-
 What's Ahead
 ============
+
+
+Disclaimer
+==========
+
+Please keep in mind that I do not consider myself an expert in this field, nor am I recognised as
+one.  What you see here is a distillation of my learning and experience in my quest
+to get better at what I do.  No information here is guaranteed to be correct.  Nor is any 
+information here reliant, it is up to the reader to check the information sources and verify 
+correctness accuracy and completeness.
+
+That said, please, if you wish to comment, correct, or make suggestions,
+kindly do so `here <https://github.com/jon-marks/PVPlant/issues>`_, and I will endeavour to respond
+promply.  It is only through constructive collaboration that we all improve. 

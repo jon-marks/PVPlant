@@ -164,7 +164,7 @@
 <li class="toctree-l1"><a class="reference internal" href="01_introduction.html">1. Introduction</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">2. System Overview</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="03_input_information/index.html">3. Input Information</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of 3. Input Information</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="03_input_information/01_weather_records.html">3.1. Weather Records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_input_information/01_weather_data.html">3.1. Weather Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_input_information/02_energy_consumption_records.html">3.2. Energy Consumption Records</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_input_information/03_energy_billing_records.html">3.3. Energy Billing Records</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_input_information/04_energy_rates.html">3.4. Energy Rates</a></li>
@@ -180,7 +180,7 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="04_intermediate_information/index.html">4. Intermediate Information</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of 4. Intermediate Information</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="04_intermediate_information/01_weather_data.html">4.1. Weather Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_intermediate_information/01_weather.html">4.1. Weather</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_intermediate_information/02_solar_energy.html">4.2. Solar Energy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_intermediate_information/03_grid_energy.html">4.3. Grid Energy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_intermediate_information/04_storage_energy.html">4.4. Storage Energy</a></li>
@@ -245,23 +245,33 @@
         <article role="main">
           <section id="system-overview">
 <span id="id1"></span><h1><span class="section-number">2. </span>System Overview<a class="headerlink" href="#system-overview" title="Link to this heading">#</a></h1>
-<p>The PV Plant Tool system overview is illustrated in <a class="reference internal" href="#fig-pvplant-tool-scope"><span class="std std-numref">Figure 2.1: </span></a>.</p>
-<figure class="align-center" id="fig-pvplant-tool-scope">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As PVPlant is initially a South African product intended for a South African market.
+International readers may find this information South Africa centric, which may not be fully
+applicable to other localities.  It is my intention to first focus on South Africa, before
+looking further afield.  That said, I am receptive to collaborative contributions that
+incorporate other localities while I focus on South Africa.</p>
+</div>
+<p>PVPlant system overview is illustrated in <a class="reference internal" href="#fig-pvplant-scope"><span class="std std-numref">Figure 2.1: </span></a>.</p>
+<figure class="align-center" id="fig-pvplant-scope">
 <a class="reference internal image-reference" href="_images/PVPlant_scope.jpg"><img alt="PV Plant Tool Scope" src="_images/PVPlant_scope.jpg" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Figure 2.1:  </span><span class="caption-text">PV Plant Tool Scope</span><a class="headerlink" href="#fig-pvplant-tool-scope" title="Link to this image">#</a></p>
+<p><span class="caption-number">Figure 2.1:  </span><span class="caption-text">PV Plant Tool Scope</span><a class="headerlink" href="#fig-pvplant-scope" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The PVPlant tools accepts information as inputs that is processed through models creating
 intermediate data, which in turn is processed through other models to ultimately arrive at Fiscal
 Projections, the resulting output data.</p>
+<section id="pvplant-components">
+<h2><span class="section-number">2.1. </span>PVPlant Components<a class="headerlink" href="#pvplant-components" title="Link to this heading">#</a></h2>
 <section id="weather-model">
-<h2><span class="section-number">2.1. </span>Weather Model<a class="headerlink" href="#weather-model" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">2.1.1. </span>Weather Model<a class="headerlink" href="#weather-model" title="Link to this heading">#</a></h3>
 <p>The weather model accepts location weather records which are available from various sources, and
 produces time-series Weather Data profile that is processed by the PV System Model can process.</p>
 </section>
 <section id="projected-consumption-costing-model">
-<h2><span class="section-number">2.2. </span>Projected Consumption Costing Model<a class="headerlink" href="#projected-consumption-costing-model" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">2.1.2. </span>Projected Consumption Costing Model<a class="headerlink" href="#projected-consumption-costing-model" title="Link to this heading">#</a></h3>
 <p>A forward-looking Load Demand profile for the following year is generated from historical energy
 consumption records coupled with anticipated consumption changes specified in Projected Energy
 Consumption.</p>
@@ -276,21 +286,21 @@ to generate an Energy Cost profile for the following year</p>
 both electricity and fossil fuel.</p>
 </section>
 <section id="pv-system-model">
-<h2><span class="section-number">2.3. </span>PV System Model<a class="headerlink" href="#pv-system-model" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">2.1.3. </span>PV System Model<a class="headerlink" href="#pv-system-model" title="Link to this heading">#</a></h3>
 <p>The PV system model uses a Weather Data profile to predicts solar energy output of a PV system.  The
 generated Solar Energy profile is an input to the <a class="reference internal" href="07_glossary.html#term-EMS"><span class="xref std std-term">EMS</span></a> Model.</p>
 <p>This model characterises the interaction and performance of all the components in a PV Systems
 taking into account their efficiencies and losses.</p>
 </section>
 <section id="genset-model">
-<h2><span class="section-number">2.4. </span>Genset Model<a class="headerlink" href="#genset-model" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">2.1.4. </span>Genset Model<a class="headerlink" href="#genset-model" title="Link to this heading">#</a></h3>
 <p>The Genset specification is used by the Genset Model to generate a Genset Energy Profile useful to
 the <a class="reference internal" href="07_glossary.html#term-EMS"><span class="xref std std-term">EMS</span></a> Model.</p>
 <p>This profile associates fuel consumption with energy production, characterising the efficiencies and
 losses of the Genset.</p>
 </section>
 <section id="energy-storage-system-model">
-<h2><span class="section-number">2.5. </span>Energy Storage System Model<a class="headerlink" href="#energy-storage-system-model" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">2.1.5. </span>Energy Storage System Model<a class="headerlink" href="#energy-storage-system-model" title="Link to this heading">#</a></h3>
 <p>The Energy Storage System (ESS) Model characterises the charging and discharging capacity, rates
 efficiencies, losses of a the energy storage device (typically batteries), together with the
 components that transform energy to and from the form compatible with the storage device.</p>
@@ -301,7 +311,7 @@ to take from or give to the ESS Model.  The ESS Model computes the Charge Energy
 stored or drawn and adjusts the battery level accordingly for the next lockstep iteration.</p>
 </section>
 <section id="energy-management-system-model">
-<h2><span class="section-number">2.6. </span>Energy Management System Model<a class="headerlink" href="#energy-management-system-model" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">2.1.6. </span>Energy Management System Model<a class="headerlink" href="#energy-management-system-model" title="Link to this heading">#</a></h3>
 <p>The Energy Management System (EMS) Model iterates over every time interval.  From the inputs
 for every time interval, based on energy cost and availability for that time, it computes the
 amount of energy to take from each energy source to satisfy Load Demand, charge batteries or
@@ -316,7 +326,7 @@ two profiles are useful to the Fiscal Model.  These profiles cover the first ful
 operation.</p>
 </section>
 <section id="fiscal-model">
-<h2><span class="section-number">2.7. </span>Fiscal Model<a class="headerlink" href="#fiscal-model" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">2.1.7. </span>Fiscal Model<a class="headerlink" href="#fiscal-model" title="Link to this heading">#</a></h3>
 <p>The Fiscal model uses the Load Energy and associated costs to calculate a time-series cost of energy
 production.  This information is compared with the cost of Load Demand supplied totally from grid
 and existing genset, or estimated costs associated with outages.  This information is further
@@ -324,9 +334,41 @@ processed against PV Plant CapEx and OpEx, and projected financial parameters to
 cost and saving financial profile for the first year of operation.</p>
 <p>Then with financial projections such as inflation rate, interest rates, energy supply cost
 escalations, component deterioration, etc. the annual numbers are projected for the lifetime of
-the PV Plant, from which finanicial management information is distilled which is useful in assessing
-the viability and return on investing in a the PV Plant.
-cost</p>
+the PV Plant, from which financial management information is distilled which is useful in assessing
+the viability and return on investing in a the PV Plant.</p>
+</section>
+</section>
+<section id="pvplant-information">
+<h2><span class="section-number">2.2. </span>PVPlant Information<a class="headerlink" href="#pvplant-information" title="Link to this heading">#</a></h2>
+<section id="pvplant-time-base">
+<h3><span class="section-number">2.2.1. </span>PVPlant Time Base<a class="headerlink" href="#pvplant-time-base" title="Link to this heading">#</a></h3>
+<p>A single time base for intermediate and final time-series data, keeps data consistent, makes this
+information easier to follow and simplifies implementation of PVPlant.</p>
+<p>PVPlant’s time base is half-hourly over a non-leap year from 1 Jan, 00:00 to 31 Dec, 23:00.  That is
+17,520 records long.</p>
+<p>Working consistently with energies and not mixing power and energy information further simplifies
+impolemenation.  The consistency makes the intermediate information easier to follow.</p>
+<p>PVPlant processes input time-series information as follows:</p>
+<ul class="simple">
+<li><p>Information is scaled or interpolated to the 1/2 hourly time base</p></li>
+<li><p>All instantaneous power measurements are converted to their energy equivalent for the
+period.  The energy value of a time step record is that energy between this time step and the
+next.</p></li>
+<li><p>All input energy measurements need to be shifted and recalculated to be between this time step
+and the next.  Some records list energy values where:</p>
+<ul>
+<li><p>The energy in a time step period, equi-distant about the time step, or</p></li>
+<li><p>The energy between the previous time step and this.</p></li>
+</ul>
+</li>
+<li><p>All instantaneous information like wind-speed or ambient temperature that PV Plant processes
+is recalculated as the average wind speed between this time step and the next, which more
+accurately represents the average value over the period representing the energy.</p></li>
+<li><p>All calculated non-linear information like azimuth and apparent elevation of the sun is
+done at the mid-point between this time step and the next to more accurately align its
+value with the energy values for the period.</p></li>
+</ul>
+</section>
 </section>
 </section>
 
@@ -386,13 +428,20 @@ cost</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">2. System Overview</a><ul>
-<li><a class="reference internal" href="#weather-model">2.1. Weather Model</a></li>
-<li><a class="reference internal" href="#projected-consumption-costing-model">2.2. Projected Consumption Costing Model</a></li>
-<li><a class="reference internal" href="#pv-system-model">2.3. PV System Model</a></li>
-<li><a class="reference internal" href="#genset-model">2.4. Genset Model</a></li>
-<li><a class="reference internal" href="#energy-storage-system-model">2.5. Energy Storage System Model</a></li>
-<li><a class="reference internal" href="#energy-management-system-model">2.6. Energy Management System Model</a></li>
-<li><a class="reference internal" href="#fiscal-model">2.7. Fiscal Model</a></li>
+<li><a class="reference internal" href="#pvplant-components">2.1. PVPlant Components</a><ul>
+<li><a class="reference internal" href="#weather-model">2.1.1. Weather Model</a></li>
+<li><a class="reference internal" href="#projected-consumption-costing-model">2.1.2. Projected Consumption Costing Model</a></li>
+<li><a class="reference internal" href="#pv-system-model">2.1.3. PV System Model</a></li>
+<li><a class="reference internal" href="#genset-model">2.1.4. Genset Model</a></li>
+<li><a class="reference internal" href="#energy-storage-system-model">2.1.5. Energy Storage System Model</a></li>
+<li><a class="reference internal" href="#energy-management-system-model">2.1.6. Energy Management System Model</a></li>
+<li><a class="reference internal" href="#fiscal-model">2.1.7. Fiscal Model</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pvplant-information">2.2. PVPlant Information</a><ul>
+<li><a class="reference internal" href="#pvplant-time-base">2.2.1. PVPlant Time Base</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

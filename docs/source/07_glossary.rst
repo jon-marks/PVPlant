@@ -19,6 +19,9 @@ Glossary
       (electrons) that periodically changes direction.  The frequency of alternation is typically 50
       or 60Hz.
    
+   **Atmospheric Turbidity***
+      See :term:`Turbidity`
+      
    **Battery**
       A device that stores electrical charge (electrons).  A battery is said to be charging when it
       is accepting electrons - current that flows into the battery.  A battery is discharging when
@@ -168,4 +171,8 @@ Glossary
       See :term:`Photovoltaic Panel`
       
    **Solar Power**
-      Power from the sun harvested by the :term:`PV Plant`.
+      Irradiance from the sun converted by a :term:`PV Plant`.
+      
+   **Turbidity**
+      The reduction in atmospheric transparency due to scattering and absorption of light by 
+      aerosols.

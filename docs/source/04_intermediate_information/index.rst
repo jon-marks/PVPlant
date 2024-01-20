@@ -11,7 +11,7 @@ Intermediate Information
 .. toctree::
    :maxdepth: 5
    
-   01_weather_data
+   01_weather
    02_solar_energy
    03_grid_energy
    04_storage_energy

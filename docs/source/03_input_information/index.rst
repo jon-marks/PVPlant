@@ -11,7 +11,7 @@ Input Information
 .. toctree::
    :maxdepth: 5
    
-   01_weather_records
+   01_weather_data
    02_energy_consumption_records
    03_energy_billing_records
    04_energy_rates
