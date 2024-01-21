@@ -44,8 +44,8 @@ Projected Consumption Costing Model
 ===================================
 
 A forward-looking Load Demand profile for the following year is generated from historical energy
-consumption records coupled with anticipated consumption changes specified in Projected Energy
-Consumption.
+consumption records coupled with 
+:ref:`Projected Energy Consumption <inp_projected_energy_consumption>` information.
 
 A prediction of anticipated load-shedding is translated into a Grid Outage profile for the following
  year

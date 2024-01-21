@@ -8,6 +8,14 @@
 Input Information
 #################
 
+.. topic:: You are what you eat!
+
+   "You are what you eat".  Like food gets digested by our bodies to provide us nutrition, input 
+   data gets processed by PV Plant modelling software to provide power production estimates.  
+   No matter how sound the processing model (digestive system), the results produced are only as
+   good as the data (food) provided.
+      
+
 .. toctree::
    :maxdepth: 5
    

@@ -8,13 +8,6 @@
 Weather Data
 ============
 
-.. topic:: You are what you eat!
-
-   "You are what you eat".  Like food gets digested by our bodies to provide us nutrition, weather
-   data gets processed by PV Plant modelling software to provide power production estimates.  
-   No matter how sound the processing model (digestive system), the results produced are only as
-   good as the data (food) provided.
-      
 It does matter what and whose weather data is used to predict PV Plant power output.  Weather Data 
 is not all created equally.  Simply pick a location, obtain different types weather data from one 
 or more sources, and sum or average the annual :term:`Insolation`.  Often the variation is more than
@@ -34,7 +27,7 @@ sun position.  The Irradiance is made up of :ref:`dni_dhi_ghi`.  The Sun's posit
 its :ref:`azimuth and apparent elevation <sun_pos>`.
 
 Weather Data selection is far more complex than one would think.  Let's proceed down a short rabbit
-hole of the complexities, or skip to :numref:`weather_data_discussion`.
+hole of the complexities, or skip to :numref:`weather_data_conc`.
 PVPlant.
 
 .. _sun_pos:
@@ -236,9 +229,9 @@ closest dataset.
    PV Watts Data Source Selection
 
 `PVGIS <https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis_en>`_
-describe their data sources and approach in :cite:`pvgis_tmy`, :cite:`pvgis_ds`, and :cite:`pvgis_man`
-PVGIS TMY data appears to be derived from satellite data, so the spacial accuracy is good.  Data is 
-obtained from https://re.jrc.ec.europa.eu/pvg_tools/en/#TMY
+describe their data sources and approach in :cite:`pvgis_tmy`, :cite:`pvgis_tmy_ds`, and 
+:cite:`pvgis_man` PVGIS TMY data appears to be derived from satellite data, so the spacial accuracy 
+is good.  Data is obtained from https://re.jrc.ec.europa.eu/pvg_tools/en/#TMY
 
 I recall reading somewhere that the estimated uncertainty for TMY data is 3%, but I have not been 
 able to find this reference again.  Any help is appreciated.
@@ -248,67 +241,53 @@ Multi-year Time-series Data
 
 Multi-year Time-series Data is calculated from satellite data.  
 
-`NREL <https://www.nrel.gov>`_ obtains its information from
-meteosat IODC, but only has records for 2017 to 2019, which is not large enough to provide sufficient 
-certainty for future irradiance projections..  https://nsrdb.nrel.gov/data-sets/international-data
+`NREL <https://www.nrel.gov>`_ obtains its time series information for South Africa from
+Meteosat IODC, but only has records for 2017 to 2019, :cite:`nrel_ts_ds`.  A three-year span is 
+insufficient to provide averages that can show the weather data pattern with sufficient certainty.
 
 `PVGIS <https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis_en>`_
-provides time-series data gleaned from european geo-stationary weather satellites.  Instantaneous hourly data
-values for the years 2005 through 2020 are available in their PGIS-SARAH2 Database.  Their download tool
-allows for panel slope and azimuth -- setting these value to zero downloads horizontal surface irradiance values.
+provides time-series data gleaned from european geo-stationary weather satellites.  Instantaneous 
+hourly data values for the years 2005 through 2020 are available in their PGIS-SARAH2 Database.  
+Their download tool allows for panel slope and azimuth -- setting these value to zero downloads 
+horizontal surface irradiance values, :cite:`pvgis_52`, :cite:`pvgis_hrly`, and :cite:`pvgis_hr_ds`.
 
-refs: https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/getting-started-pvgis/pvgis-user-manual_en#ref-9-hourly-solar-radiation-and-pv-data
-https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/pvgis-tools/hourly-radiation_en
-https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/pvgis-releases/pvgis-52_en
-
-`CAMS <https://ads.atmosphere.copernicus.eu/cdsapp#!/home>`_ Only provides time-series data.  30min resolution
-horizontal Data going back to 2 Jan 2004 can be requested which is ideal for PVPlant.  The dataset also
-provide a reliability factor for each data record.  This leads me to believe/infer that this data is 
-perhaps the most accurate / reliable of all the choices, but I have no way of verifying this. CAMS data
-cam be obtained from: 
-https://confluence.ecmwf.int/display/CKB/CAMS+solar+radiation+time-series%3A+data+documentation
-
-The Standard deviation of time-series data is calculateable so the uncertanty of the averaged data is known.
+`CAMS <https://ads.atmosphere.copernicus.eu/cdsapp#!/home>`_ :cite:`cams_docs`, :cite:`cams_ug` only
+provides time series data to 1 minute temporal resolution, interpolated to location of interest from
+2 January 2004 to present minus two days :cite:`cams_ts`.  It is possible to compute annual average 
+time-series and TMY time series from these data-sets with reasonable uncertainties.
 
 Theoretical Clearsky Model
 ++++++++++++++++++++++++++
 
-Many tools abound for clearsky communication models.  PVPlant uses pvlib as the tool with the internal 
-defaults  https://pvlib-python.readthedocs.io/en/stable/index.html
+Many tools abound for clearsky communication models.  PVPlant uses pvlib as the tool with the 
+internal defaults  https://pvlib-python.readthedocs.io/en/stable/index.html
 
 * NREL SPA - solar position, which also accounts for light refraction close to the horizon
 * Ineichen and Perez clear sky model Clearsky model: Perez 
 * Kasten and Young Air mass model.
 
-CAMS Timeseries also has an option for providing clearsky data calculated from satellite imagery which
-is probably more accurate as information based on current observed data is likely to be more accurate than 
-modeled data based on historical data.  Again I have no way of verifying this.
+CAMS Timeseries also has an option for providing clearsky data calculated from satellite imagery 
+which is probably more accurate as information based on current observed data is likely to be more
+accurate than modeled data based on historical data.  But, I have no way of verifying this.
 
-.. _weather_data_discussion:
+Accuracy of Data
+----------------
 
-Discussion
-----------
+Ultimately, we are interested in the quality of the data selected, so we can predict PV Plant solar 
+power performance accurately.
 
 Irrespective of the type of weather data the more years the data covers the better.  Generally the
 larger the sample set the lower the uncertainties, One would want to consider at least 10 years of
 data as a minimum
 
-TMY data wants to eliminate weather caused by unusual and randomly occuring events such as volanic
+TMY data wants to eliminate weather caused by unusual and randomly occurring events such as volcanic
 eruptions, earthquakes, large fires, wars, and the like.  Averaging Times-series
-data on the other hand includes a weighting of these events.  
+data on the other hand will include a weighting of these events.  
 
-There are proponents for the use of one
-type or another.  I personally believe averaged time-series is more representative of reality.  Although
-there is no way of predicting when one of events occur and what their effect on weather will be, we
-can be certain that these events will continue to occur into the future and it is more realistic to 
-account for these events in long term averages.
-
-PV Plant supports the use of both TMY and Time-series data, clearsky data provides a useful idealised
-reference. Different data types and even same data types from different providers will afford different
-results than can be up to 5% apart - that is approximately a 25% uncertainty, where fractions of
-percentage points count.  Predicting production of a solar plant is an art, where predictions on 
-data-sets are really a guide.
-
+There are proponents for the use of one type or another.  I personally believe averaged time-series
+is more representative of reality.  Although there is no way of predicting when one of events occur
+and what their effect on weather will be, we can be certain that weather affecting events will
+continue to occur, and at the frequency they have occurred in the past.
 
 As of this Writing, 
 `PVSyst <https://www.pvsyst.com>`_ and `Helioscope <https://www.helioscope.com>`_ by default use 
@@ -319,11 +298,29 @@ making them less than ideal for analysis unless the PV plant is close to a measu
 `OpenSolar <https://www.opensolar.com>`_ uses NREL's `SAM <https://sam.nrel.gov/>`_ to model solar
 performance.  SAM uses the NREL's TMY data too.  
 
-Personally, I favour averaged time-series data over TMY data.  If TMY data is required, use PVGIS's 
-TMY information.  When it comes to Time Series, CAMS provides data that can be used without manipulation
-whereas PVGIS data requires some interpolation and conversion of irradiance numbers to insolation.
-Also there are more years available in the CAMS data set.
 
-Because of the variabililty of data, a good approach may be to calculate annual solar production 
-using PVGIS TMY, PVGIS time series and CAMS time series data, to judge where the actual prediction
-may fall.
+Concerns about data set accuracy are real. :cite:`edbodmer_sra` and :cite:`pvsyst_data_accuracy`.
+Accuracy analysis of PVGIS and CAMS, largely cover Europe, and show reasonable but not ideal
+correlations with measured results. :cite:`cams_rad_consist`, :cite:`cams_rad_perf`, 
+:cite:`pvgis_comp`
+
+.. _weather_data_conc:
+
+Concluding remarks
+------------------
+
+As of this writing I have not found any accuracy analyses of data sets for South Africa.  Predicting
+production of a solar plant is an art, where predictions from data-sets are really a guide.  
+Especially so in South Africa.
+ 
+PVPlant supports the use of both TMY and Time-series data, with Clearsky data providing a useful
+idealised reference.  
+
+Personally, I favour averaged time-series data over TMY data.  If TMY data is required, use PVGIS's 
+TMY information.  When it comes to Time Series, CAMS provides data that can be used without 
+manipulation whereas PVGIS data requires some interpolation and conversion of irradiance numbers to
+insolation. Also, there are more years available in the CAMS data set.
+
+Because of the variability of data, a good approach may be to calculate annual solar production 
+using PVGIS TMY, PVGIS time series and CAMS time series data, to judge where the actual plant
+production may fall.

@@ -2,7 +2,7 @@
 
 .. include:: ..\globals.inc
 
-.. _projected_energy_consumption:
+.. _inp_projected_energy_consumption:
 
 Projected Energy Consumption
 ============================

@@ -245,13 +245,6 @@
         <article role="main">
           <section id="weather-data">
 <span id="weather-records"></span><h1><span class="section-number">3.1. </span>Weather Data<a class="headerlink" href="#weather-data" title="Link to this heading">#</a></h1>
-<aside class="topic">
-<p class="topic-title">You are what you eat!</p>
-<p>“You are what you eat”.  Like food gets digested by our bodies to provide us nutrition, weather
-data gets processed by PV Plant modelling software to provide power production estimates.
-No matter how sound the processing model (digestive system), the results produced are only as
-good as the data (food) provided.</p>
-</aside>
 <p>It does matter what and whose weather data is used to predict PV Plant power output.  Weather Data
 is not all created equally.  Simply pick a location, obtain different types weather data from one
 or more sources, and sum or average the annual <a class="reference internal" href="../07_glossary.html#term-Insolation"><span class="xref std std-term">Insolation</span></a>.  Often the variation is more than
@@ -267,7 +260,7 @@ predicted?</p>
 sun position.  The Irradiance is made up of <a class="reference internal" href="#dni-dhi-ghi"><span class="std std-ref">DNI, DHI and GHI</span></a>.  The Sun’s position is specified by
 its <a class="reference internal" href="#sun-pos"><span class="std std-ref">azimuth and apparent elevation</span></a>.</p>
 <p>Weather Data selection is far more complex than one would think.  Let’s proceed down a short rabbit
-hole of the complexities, or skip to <a class="reference internal" href="#weather-data-discussion"><span class="std std-numref">Section 3.1.1.6: </span></a>.
+hole of the complexities, or skip to <a class="reference internal" href="#weather-data-conc"><span class="std std-numref">Section 3.1.1.7: </span></a>.
 PVPlant.</p>
 <section id="position-of-the-sun">
 <span id="sun-pos"></span><h3><span class="section-number">3.1.1.1. </span>Position of the Sun<a class="headerlink" href="#position-of-the-sun" title="Link to this heading">#</a></h3>
@@ -358,7 +351,7 @@ calculated as follows:</p>
 <p>In the spirit of open information and public availability, Weather Data from like-minded
 organisations are considered.  The Weather Data organisations considered here are NREL, PVGIS, and
 CAMS</p>
-<p><span id="id1">[<a class="reference internal" href="../08_references.html#id9" title="Pvlib - weather data - types of weather data. URL: https://pvlib-python.readthedocs.io/en/stable/user_guide/weather_data.html#types-of-weather-data-sources.">5</a>]</span> and <span id="id2">[<a class="reference internal" href="../08_references.html#id8" title="Adam R. Jensen, Kevin S. Anderson, William F. Holmgren, Mark A. Mikofski, Clifford W. Hansen, Leland J. Boeman, and Roel Loonen. Pvlib iotools — open-source python functions for seamless access to solar irradiance data. Solar Energy, 266:1–9, November 2023. URL: https://www.sciencedirect.com/science/article/pii/S0038092X23007260.">8</a>]</span> lists three types of weather sources:</p>
+<p><span id="id1">[<a class="reference internal" href="../08_references.html#id20" title="Pvlib - weather data - types of weather data. URL: https://pvlib-python.readthedocs.io/en/stable/user_guide/weather_data.html#types-of-weather-data-sources.">13</a>]</span> and <span id="id2">[<a class="reference internal" href="../08_references.html#id19" title="Adam R. Jensen, Kevin S. Anderson, William F. Holmgren, Mark A. Mikofski, Clifford W. Hansen, Leland J. Boeman, and Roel Loonen. Pvlib iotools — open-source python functions for seamless access to solar irradiance data. Solar Energy, 266:1–9, November 2023. URL: https://www.sciencedirect.com/science/article/pii/S0038092X23007260.">17</a>]</span> lists three types of weather sources:</p>
 <section id="ground-weather-stations">
 <h4><span class="section-number">3.1.1.4.1. </span>Ground Weather Stations<a class="headerlink" href="#ground-weather-stations" title="Link to this heading">#</a></h4>
 <p>Ground Weather Stations take actual irradiance weather measurements at specific geographic
@@ -367,7 +360,7 @@ these weather stations log the most accurate information for that location.  How
 needs periodic calibration and maintenance and does go faulty from time to time leaving holes in
 the accurate information.  Some ground stations make their weather data publicly available.</p>
 <p>Because of the large expense of maintaining high quality weather stations they are rather scarce.
-At the time of this writing <span id="id3">[<a class="reference internal" href="../08_references.html#id10" title="Solar stations web site. URL: https://solarstations.org/intro.html.">4</a>]</span> identifies only 10 active sites in the whole of
+At the time of this writing <span id="id3">[<a class="reference internal" href="../08_references.html#id22" title="Solar stations web site. URL: https://solarstations.org/intro.html.">12</a>]</span> identifies only 10 active sites in the whole of
 South africa as shown in <a class="reference internal" href="#fig-solstns"><span class="std std-numref">Figure 3.3: </span></a>.  The blue dots represent active sites, the red dots,
 inactive sites.</p>
 <figure class="align-center" id="fig-solstns">
@@ -412,7 +405,7 @@ monthly data is closest to the calculated median is taken as the Typical Meteoro
 the TMY.  Typically, weightings are given to certain data items in determining the median month.</p>
 <p>The approach is the same but different data set providers implement the details differently.</p>
 <p><a class="reference external" href="https://www.nrel.gov">NREL</a> describe their data sources and how they calculate TMY data in
-<span id="id4">[<a class="reference internal" href="../08_references.html#id4" title="S. Wilcox and W. Marion. Users manual for tmy3 data sets. Technical Report NREL/TP-581-43156, National Renewable Energy Laboratory, May 2008. URL: https://www.nrel.gov/docs/fy08osti/43156.pdf.">9</a>]</span> and <span id="id5">[<a class="reference internal" href="../08_references.html#id3" title="Nsrdb — typical meteorological year (tmy). URL: https://nsrdb.nrel.gov/data-sets/tmy.">1</a>]</span>.  NREL TMY data is based on ground observations, and
+<span id="id4">[<a class="reference internal" href="../08_references.html#id11" title="S. Wilcox and W. Marion. Users manual for tmy3 data sets. Technical Report NREL/TP-581-43156, National Renewable Energy Laboratory, May 2008. URL: https://www.nrel.gov/docs/fy08osti/43156.pdf.">20</a>]</span> and <span id="id5">[<a class="reference internal" href="../08_references.html#id9" title="Nsrdb — typical meteorological year (tmy). URL: https://nsrdb.nrel.gov/data-sets/tmy.">4</a>]</span>.  NREL TMY data is based on ground observations, and
 in the whole of Southern africa data is either observed in Harare, Johannesburg or Capetown.  The
 site requires latitude and longitude coordinate entry and then shows how far this site is from the
 closest dataset.</p>
@@ -423,65 +416,56 @@ closest dataset.</p>
 </figcaption>
 </figure>
 <p><a class="reference external" href="https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis_en">PVGIS</a>
-describe their data sources and approach in <span id="id6">[<a class="reference internal" href="../08_references.html#id7" title="Thomas Huld, Elena Paietta, Paolo Zangheri, and Irene Pinedo Pascua. Assembling typical meteorological year data sets for building energy performance using reanalysis and satellite-based data. Atmosphere, 9,53:1–21, November 2018. URL: https://www.mdpi.com/2073-4433/9/2/53.">7</a>]</span>, <span id="id7">[<a class="reference internal" href="../08_references.html#id5" title="Pvgis typical meteorological year (tmy) generator. URL: https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/pvgis-tools/pvgis-typical-meteorological-year-tmy-generator_en.">3</a>]</span>, and <span id="id8">[<a class="reference internal" href="../08_references.html#id6" title="Pvgis typical meteorological year (tmy) data. URL: https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/getting-started-pvgis/pvgis-user-manual_en#ref-10-typical-meteorological-year-tmy-data.">2</a>]</span>
-PVGIS TMY data appears to be derived from satellite data, so the spacial accuracy is good.  Data is
-obtained from <a class="reference external" href="https://re.jrc.ec.europa.eu/pvg_tools/en/#TMY">https://re.jrc.ec.europa.eu/pvg_tools/en/#TMY</a></p>
+describe their data sources and approach in <span id="id6">[<a class="reference internal" href="../08_references.html#id18" title="Thomas Huld, Elena Paietta, Paolo Zangheri, and Irene Pinedo Pascua. Assembling typical meteorological year data sets for building energy performance using reanalysis and satellite-based data. Atmosphere, 9,53:1–21, November 2018. URL: https://www.mdpi.com/2073-4433/9/2/53.">16</a>]</span>, <span id="id7">[<a class="reference internal" href="../08_references.html#id14" title="Pvgis typical meteorological year (tmy) generator. URL: https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/pvgis-releases/pvgis-52_en.">9</a>]</span>, and
+<span id="id8">[<a class="reference internal" href="../08_references.html#id17" title="Pvgis typical meteorological year (tmy) data. URL: https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/getting-started-pvgis/pvgis-user-manual_en#ref-10-typical-meteorological-year-tmy-data.">10</a>]</span> PVGIS TMY data appears to be derived from satellite data, so the spacial accuracy
+is good.  Data is obtained from <a class="reference external" href="https://re.jrc.ec.europa.eu/pvg_tools/en/#TMY">https://re.jrc.ec.europa.eu/pvg_tools/en/#TMY</a></p>
 <p>I recall reading somewhere that the estimated uncertainty for TMY data is 3%, but I have not been
 able to find this reference again.  Any help is appreciated.</p>
 </section>
 <section id="multi-year-time-series-data">
 <h4><span class="section-number">3.1.1.5.2. </span>Multi-year Time-series Data<a class="headerlink" href="#multi-year-time-series-data" title="Link to this heading">#</a></h4>
 <p>Multi-year Time-series Data is calculated from satellite data.</p>
-<p><a class="reference external" href="https://www.nrel.gov">NREL</a> obtains its information from
-meteosat IODC, but only has records for 2017 to 2019, which is not large enough to provide sufficient
-certainty for future irradiance projections..  <a class="reference external" href="https://nsrdb.nrel.gov/data-sets/international-data">https://nsrdb.nrel.gov/data-sets/international-data</a></p>
+<p><a class="reference external" href="https://www.nrel.gov">NREL</a> obtains its time series information for South Africa from
+Meteosat IODC, but only has records for 2017 to 2019, <span id="id10">[<a class="reference internal" href="../08_references.html#id10" title="Nsrdb — international data. URL: https://nsrdb.nrel.gov/data-sets/international-data.">3</a>]</span>.  A three-year span is
+insufficient to provide averages that can show the weather data pattern with sufficient certainty.</p>
 <p><a class="reference external" href="https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis_en">PVGIS</a>
-provides time-series data gleaned from european geo-stationary weather satellites.  Instantaneous hourly data
-values for the years 2005 through 2020 are available in their PGIS-SARAH2 Database.  Their download tool
-allows for panel slope and azimuth – setting these value to zero downloads horizontal surface irradiance values.</p>
-<p>refs: <a class="reference external" href="https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/getting-started-pvgis/pvgis-user-manual_en#ref-9-hourly-solar-radiation-and-pv-data">https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/getting-started-pvgis/pvgis-user-manual_en#ref-9-hourly-solar-radiation-and-pv-data</a>
-<a class="reference external" href="https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/pvgis-tools/hourly-radiation_en">https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/pvgis-tools/hourly-radiation_en</a>
-<a class="reference external" href="https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/pvgis-releases/pvgis-52_en">https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/pvgis-releases/pvgis-52_en</a></p>
-<p><a class="reference external" href="https://ads.atmosphere.copernicus.eu/cdsapp#!/home">CAMS</a> Only provides time-series data.  30min resolution
-horizontal Data going back to 2 Jan 2004 can be requested which is ideal for PVPlant.  The dataset also
-provide a reliability factor for each data record.  This leads me to believe/infer that this data is
-perhaps the most accurate / reliable of all the choices, but I have no way of verifying this. CAMS data
-cam be obtained from:
-<a class="reference external" href="https://confluence.ecmwf.int/display/CKB/CAMS+solar+radiation+time-series%3A+data+documentation">https://confluence.ecmwf.int/display/CKB/CAMS+solar+radiation+time-series%3A+data+documentation</a></p>
-<p>The Standard deviation of time-series data is calculateable so the uncertanty of the averaged data is known.</p>
+provides time-series data gleaned from european geo-stationary weather satellites.  Instantaneous
+hourly data values for the years 2005 through 2020 are available in their PGIS-SARAH2 Database.
+Their download tool allows for panel slope and azimuth – setting these value to zero downloads
+horizontal surface irradiance values, <span id="id12">[<a class="reference internal" href="../08_references.html#id12" title="Pvgis 5.2. URL: https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/pvgis-tools/pvgis-typical-meteorological-year-tmy-generator_en.">5</a>]</span>, <span id="id13">[<a class="reference internal" href="../08_references.html#id15" title="Pvgis hourly radiation. URL: https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/pvgis-tools/hourly-radiation_en.">7</a>]</span>, and <span id="id14">[<a class="reference internal" href="../08_references.html#id16" title="Pvgis hourly solar radiation and pv data. URL: https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/getting-started-pvgis/pvgis-user-manual_en#ref-9-hourly-solar-radiation-and-pv-data.">8</a>]</span>.</p>
+<p><a class="reference external" href="https://ads.atmosphere.copernicus.eu/cdsapp#!/home">CAMS</a> <span id="id15">[<a class="reference internal" href="../08_references.html#id3" title="Cams solar radiation time-series: data documentation. URL: https://confluence.ecmwf.int/display/CKB/CAMS+solar+radiation+time-series%3A+data+documentation.">2</a>]</span>, <span id="id16">[<a class="reference internal" href="../08_references.html#id7" title="User Guide to the CAMS Radiation Service (CRS). December 2022. URL: https://www.soda-pro.com/documents/10157/0/CAMS2_73_2021SC1_D3.2.1_2022_UserGuide_v1.pdf/f75d4f11-e22a-c6c8-62ef-bc8fa2199b00?t=1678178420663.">14</a>]</span> only
+provides time series data to 1 minute temporal resolution, interpolated to location of interest from
+2 January 2004 to present minus two days <span id="id17">[<a class="reference internal" href="../08_references.html#id4" title="Cams solar radiation time-series: overview. URL: https://ads.atmosphere.copernicus.eu/cdsapp#!/dataset/cams-solar-radiation-timeseries?tab=overview.">1</a>]</span>.  It is possible to compute annual average
+time-series and TMY time series from these data-sets with reasonable uncertainties.</p>
 </section>
 <section id="theoretical-clearsky-model">
 <h4><span class="section-number">3.1.1.5.3. </span>Theoretical Clearsky Model<a class="headerlink" href="#theoretical-clearsky-model" title="Link to this heading">#</a></h4>
-<p>Many tools abound for clearsky communication models.  PVPlant uses pvlib as the tool with the internal
-defaults  <a class="reference external" href="https://pvlib-python.readthedocs.io/en/stable/index.html">https://pvlib-python.readthedocs.io/en/stable/index.html</a></p>
+<p>Many tools abound for clearsky communication models.  PVPlant uses pvlib as the tool with the
+internal defaults  <a class="reference external" href="https://pvlib-python.readthedocs.io/en/stable/index.html">https://pvlib-python.readthedocs.io/en/stable/index.html</a></p>
 <ul class="simple">
 <li><p>NREL SPA - solar position, which also accounts for light refraction close to the horizon</p></li>
 <li><p>Ineichen and Perez clear sky model Clearsky model: Perez</p></li>
 <li><p>Kasten and Young Air mass model.</p></li>
 </ul>
-<p>CAMS Timeseries also has an option for providing clearsky data calculated from satellite imagery which
-is probably more accurate as information based on current observed data is likely to be more accurate than
-modeled data based on historical data.  Again I have no way of verifying this.</p>
+<p>CAMS Timeseries also has an option for providing clearsky data calculated from satellite imagery
+which is probably more accurate as information based on current observed data is likely to be more
+accurate than modeled data based on historical data.  But, I have no way of verifying this.</p>
 </section>
 </section>
-<section id="discussion">
-<span id="weather-data-discussion"></span><h3><span class="section-number">3.1.1.6. </span>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">#</a></h3>
+<section id="accuracy-of-data">
+<h3><span class="section-number">3.1.1.6. </span>Accuracy of Data<a class="headerlink" href="#accuracy-of-data" title="Link to this heading">#</a></h3>
+<p>Ultimately, we are interested in the quality of the data selected, so we can predict PV Plant solar
+power performance accurately.</p>
 <p>Irrespective of the type of weather data the more years the data covers the better.  Generally the
 larger the sample set the lower the uncertainties, One would want to consider at least 10 years of
 data as a minimum</p>
-<p>TMY data wants to eliminate weather caused by unusual and randomly occuring events such as volanic
+<p>TMY data wants to eliminate weather caused by unusual and randomly occurring events such as volcanic
 eruptions, earthquakes, large fires, wars, and the like.  Averaging Times-series
-data on the other hand includes a weighting of these events.</p>
-<p>There are proponents for the use of one
-type or another.  I personally believe averaged time-series is more representative of reality.  Although
-there is no way of predicting when one of events occur and what their effect on weather will be, we
-can be certain that these events will continue to occur into the future and it is more realistic to
-account for these events in long term averages.</p>
-<p>PV Plant supports the use of both TMY and Time-series data, clearsky data provides a useful idealised
-reference. Different data types and even same data types from different providers will afford different
-results than can be up to 5% apart - that is approximately a 25% uncertainty, where fractions of
-percentage points count.  Predicting production of a solar plant is an art, where predictions on
-data-sets are really a guide.</p>
+data on the other hand will include a weighting of these events.</p>
+<p>There are proponents for the use of one type or another.  I personally believe averaged time-series
+is more representative of reality.  Although there is no way of predicting when one of events occur
+and what their effect on weather will be, we can be certain that weather affecting events will
+continue to occur, and at the frequency they have occurred in the past.</p>
 <p>As of this Writing,
 <a class="reference external" href="https://www.pvsyst.com">PVSyst</a> and <a class="reference external" href="https://www.helioscope.com">Helioscope</a> by default use
 <a class="reference external" href="https://www.meteonorm">Meteonorm</a> TMY weather data-sets.  Meteonorm obtains its TMY datasets from
@@ -489,13 +473,25 @@ NREL and <a class="reference external" href="https://www.dwd.de">DWD</a> - both 
 making them less than ideal for analysis unless the PV plant is close to a measuring station.</p>
 <p><a class="reference external" href="https://www.opensolar.com">OpenSolar</a> uses NREL’s <a class="reference external" href="https://sam.nrel.gov/">SAM</a> to model solar
 performance.  SAM uses the NREL’s TMY data too.</p>
+<p>Concerns about data set accuracy are real. <span id="id18">[<a class="reference internal" href="../08_references.html#id8" title="Ed Bodmer. Solar resource analysis. URL: https://youtu.be/mIS5hkXx5I0.">15</a>]</span> and <span id="id19">[<a class="reference internal" href="../08_references.html#id21" title="Pvsyst - user's feedback regarding meteonorm vs pvgis. URL: https://forum.pvsyst.com/topic/2814-users-feedback-regarding-meteonorm-vs-pvgis.">11</a>]</span>.
+Accuracy analysis of PVGIS and CAMS, largely cover Europe, and show reasonable but not ideal
+correlations with measured results. <span id="id20">[<a class="reference internal" href="../08_references.html#id5" title="Mathilde Marchand, Laurent Saboret Mireille Lefèvre and, Etienne Wey1, and Lucien Wald. Verifying the spatial consistency of the cams radiation service and helioclim-3 satellite-derived databases of solar radiation using a dense network of measuring stations: the case of the netherlands. In Advances in Science and Research Open Access Proceedings, volume 16, 103–111. 2019. URL: https://asr.copernicus.org/articles/16/103/2019/asr-16-103-2019.pdf.">18</a>]</span>, <span id="id21">[<a class="reference internal" href="../08_references.html#id6" title="Mathilde Marchand, Yves-Marie Saint-Drenan, Laurent Saboret, Etienne Wey, and and Lucien Wald. Performance of cams radiation service and helioclim-3 databases of solar radiation at surface: evaluating the spatial variation in germany. In Advances in Science and Research Open Access Proceedings, volume 17, 143–152. 2020. URL: https://asr.copernicus.org/articles/17/143/2020/asr-17-143-2020.pdf.">19</a>]</span>,
+<span id="id22">[<a class="reference internal" href="../08_references.html#id13" title="Pvgis comparison. URL: https://solcast.com/historical-and-tmy/pvgis.">6</a>]</span></p>
+</section>
+<section id="concluding-remarks">
+<span id="weather-data-conc"></span><h3><span class="section-number">3.1.1.7. </span>Concluding remarks<a class="headerlink" href="#concluding-remarks" title="Link to this heading">#</a></h3>
+<p>As of this writing I have not found any accuracy analyses of data sets for South Africa.  Predicting
+production of a solar plant is an art, where predictions from data-sets are really a guide.
+Especially so in South Africa.</p>
+<p>PVPlant supports the use of both TMY and Time-series data, with Clearsky data providing a useful
+idealised reference.</p>
 <p>Personally, I favour averaged time-series data over TMY data.  If TMY data is required, use PVGIS’s
-TMY information.  When it comes to Time Series, CAMS provides data that can be used without manipulation
-whereas PVGIS data requires some interpolation and conversion of irradiance numbers to insolation.
-Also there are more years available in the CAMS data set.</p>
-<p>Because of the variabililty of data, a good approach may be to calculate annual solar production
-using PVGIS TMY, PVGIS time series and CAMS time series data, to judge where the actual prediction
-may fall.</p>
+TMY information.  When it comes to Time Series, CAMS provides data that can be used without
+manipulation whereas PVGIS data requires some interpolation and conversion of irradiance numbers to
+insolation. Also, there are more years available in the CAMS data set.</p>
+<p>Because of the variability of data, a good approach may be to calculate annual solar production
+using PVGIS TMY, PVGIS time series and CAMS time series data, to judge where the actual plant
+production may fall.</p>
 </section>
 </section>
 </section>
@@ -572,7 +568,8 @@ may fall.</p>
 <li><a class="reference internal" href="#theoretical-clearsky-model">3.1.1.5.3. Theoretical Clearsky Model</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#discussion">3.1.1.6. Discussion</a></li>
+<li><a class="reference internal" href="#accuracy-of-data">3.1.1.6. Accuracy of Data</a></li>
+<li><a class="reference internal" href="#concluding-remarks">3.1.1.7. Concluding remarks</a></li>
 </ul>
 </li>
 </ul>
