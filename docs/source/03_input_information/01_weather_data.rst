@@ -132,7 +132,7 @@ For example, say a location experiences an Annual Insolation of 2MW/m\ :sup:`2`.
 .. math::
    :label: MCF1
    
-   \begin{align}Maximum\ Capacity\ Factor &= \frac{2\ 000\ 000\ Wp/m^2}{1\ 000\ Wph/m^2 \times 8\ 760\ h}\\
+   \begin{align}Maximum\ Capacity\ Factor &= \frac{2\ 000\ 000\ Wph/m^2}{1\ 000\ Wp/m^2 \times 8\ 760\ h}\\
    \\
    &= 22.83 \% \end{align}
 

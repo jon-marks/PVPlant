@@ -12,7 +12,7 @@ anticipated changes in consumption is used by the PCC model to predict future Lo
 PVPlant modelling, Solar Energy production offset Load Demand time-step to time-step.  If the 
 projected load-demand is not accurate, these inaccuracies accumulate as the Load Demand after Solar
 Offset will not be accurate, billing will not be accurate, and nor will any of the resulting
-financial modelling, leading to poor decision making from inaccurate results.
+financial modelling, leading to poor decision-making from inaccurate results.
 
 Smart Meter Logs
 ----------------
